@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, ArrowLeft, Users, Clock, Target, Award, BookOpen, Coffee } from "lucide-react";
 import { useLocation } from "wouter";
 
 const services = [
@@ -12,6 +13,23 @@ const services = [
       "Agenda design & time management", 
       "Participant engagement techniques"
     ],
+    expandedDescription: "In today's fast-paced world, meetings can either be the catalyst for breakthrough collaboration or the biggest drain on productivity. Through my Effective Meetings coaching, you'll master the art and science of leading sessions that people actually want to attend.",
+    details: [
+      "Pre-meeting preparation strategies that set the stage for success",
+      "Dynamic facilitation techniques that keep energy high and focus sharp",
+      "Conflict resolution methods for navigating difficult conversations",
+      "Decision-making frameworks that move teams from discussion to action",
+      "Follow-up systems that ensure commitments turn into results"
+    ],
+    outcomes: [
+      "Reduce meeting time by 30% while increasing productivity",
+      "Create psychological safety for authentic participation",
+      "Master the art of reading room dynamics and adjusting accordingly",
+      "Build consensus efficiently without sacrificing diverse perspectives"
+    ],
+    duration: "8-week program",
+    format: "1-on-1 or small group sessions",
+    investment: "Custom pricing based on scope"
   },
   {
     title: "Community Building",
@@ -21,6 +39,23 @@ const services = [
       "Inclusive environment design",
       "Sustainable growth methods"
     ],
+    expandedDescription: "Building a community is more than gathering people—it's about creating a living ecosystem where relationships flourish and collective wisdom emerges. My Community Building approach focuses on sustainable growth that honors both individual needs and collective purpose.",
+    details: [
+      "Vision crafting sessions to define your community's unique purpose and values",
+      "Inclusive design principles that welcome diverse perspectives and backgrounds",
+      "Engagement strategies that turn passive members into active contributors",
+      "Conflict resolution systems that strengthen rather than divide",
+      "Leadership development to cultivate community champions and ambassadors"
+    ],
+    outcomes: [
+      "Design community structures that scale authentically",
+      "Create rituals and traditions that deepen member connection",
+      "Develop sustainable engagement without burning out leaders",
+      "Build resilient communities that thrive through challenges"
+    ],
+    duration: "12-week intensive",
+    format: "Group workshops + individual mentoring",
+    investment: "Sliding scale available"
   },
   {
     title: "Tea Mastery",
@@ -30,11 +65,165 @@ const services = [
       "Mindfulness & presence practice",
       "Leadership through ritual"
     ],
+    expandedDescription: "The way of tea is the way of presence. Through the ancient practice of Gongfu Cha, discover how slowing down and creating sacred space can transform your leadership style and deepen your capacity for authentic connection with others.",
+    details: [
+      "Traditional Gongfu Cha techniques using authentic tea sets and premium teas",
+      "Mindfulness practices integrated with tea preparation and serving",
+      "The philosophy of 'beginner's mind' and how it applies to leadership",
+      "Creating ritual and ceremony in everyday professional interactions",
+      "Hosting tea sessions as a tool for team building and client relations"
+    ],
+    outcomes: [
+      "Develop unshakeable presence and centeredness under pressure",
+      "Create meaningful ritual in your professional and personal life",
+      "Master the art of deep listening and authentic response",
+      "Use tea ceremony as a unique differentiator in your leadership approach"
+    ],
+    duration: "6-month journey",
+    format: "Monthly in-person ceremonies + online support",
+    investment: "Includes all tea and equipment"
   },
 ];
 
 export default function Coaching() {
   const [, setLocation] = useLocation();
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const handleExpand = (index: number) => {
+    setExpandedIndex(index);
+  };
+
+  const handleCollapse = () => {
+    setExpandedIndex(null);
+  };
+
+  if (expandedIndex !== null) {
+    const service = services[expandedIndex];
+    return (
+      <div className="min-h-screen bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="mb-8">
+            <Button 
+              onClick={handleCollapse}
+              variant="ghost"
+              className="flex items-center text-gray-600 hover:text-primary"
+            >
+              <ArrowLeft className="mr-2" size={20} />
+              Back to Services
+            </Button>
+          </div>
+          
+          <div className={`${
+            expandedIndex === 0 ? 'animate-slide-in-left' : 
+            expandedIndex === 2 ? 'animate-slide-in-right' : 
+            'animate-slide-in-center'
+          }`}>
+            <div className="text-center mb-12">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{service.title}</h1>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                {service.expandedDescription}
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-12 mb-16">
+              <div className="space-y-8">
+                <Card className="bg-gray-50 rounded-2xl shadow-lg">
+                  <CardContent className="p-8">
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                      <BookOpen className="mr-3 text-primary" size={24} />
+                      What You'll Learn
+                    </h3>
+                    <ul className="space-y-4">
+                      {service.details.map((detail, index) => (
+                        <li key={index} className="flex items-start">
+                          <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                          <span className="text-gray-600 leading-relaxed">{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-gray-50 rounded-2xl shadow-lg">
+                  <CardContent className="p-8">
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                      <Target className="mr-3 text-accent" size={24} />
+                      Key Outcomes
+                    </h3>
+                    <ul className="space-y-3">
+                      {service.outcomes.map((outcome, index) => (
+                        <li key={index} className="flex items-start">
+                          <Check className="text-accent mr-3 mt-1 flex-shrink-0" size={16} />
+                          <span className="text-gray-600 leading-relaxed">{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+              
+              <div className="space-y-8">
+                <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
+                  <span className="text-gray-500 text-sm">Service Image Placeholder</span>
+                </div>
+                
+                <Card className="bg-gray-50 rounded-2xl shadow-lg">
+                  <CardContent className="p-8">
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                      <Clock className="mr-3 text-indigo-500" size={24} />
+                      Program Details
+                    </h3>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span className="text-gray-600 font-medium">Duration</span>
+                        <span className="text-primary font-semibold">{service.duration}</span>
+                      </div>
+                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span className="text-gray-600 font-medium">Format</span>
+                        <span className="text-primary font-semibold">{service.format}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600 font-medium">Investment</span>
+                        <span className="text-primary font-semibold">{service.investment}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <div className="text-center space-y-4">
+                  <Button 
+                    onClick={() => setLocation("/contact")}
+                    className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
+                  >
+                    Schedule Discovery Call
+                  </Button>
+                  <p className="text-sm text-gray-500">
+                    Free 30-minute consultation to discuss your goals
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <Button 
+                onClick={handleCollapse}
+                variant="outline"
+                className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200 mr-4"
+              >
+                View All Services
+              </Button>
+              <Button 
+                onClick={() => setLocation("/contact")}
+                className="bg-accent text-white px-8 py-3 rounded-lg hover:bg-emerald-700 transition-colors duration-200"
+              >
+                Get Started Today
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -48,7 +237,15 @@ export default function Coaching() {
         
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <Card 
+              key={index} 
+              className={`bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+                expandedIndex === null ? 'animate-fade-in' : ''
+              }`}
+              style={{
+                animationDelay: `${index * 0.1}s`
+              }}
+            >
               <div className="w-full h-48 bg-gray-200 flex items-center justify-center">
                 <span className="text-gray-500 text-sm">Service Image Placeholder</span>
               </div>
@@ -65,14 +262,13 @@ export default function Coaching() {
                     </li>
                   ))}
                 </ul>
-                <div className="text-center">
-                  <Button 
-                    onClick={() => setLocation("/contact")}
-                    className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
-                  >
-                    Learn More
-                  </Button>
-                </div>
+                <Button
+                  onClick={() => handleExpand(index)}
+                  variant="outline"
+                  className="w-full text-primary border-primary hover:bg-primary hover:text-white transition-colors duration-200"
+                >
+                  More
+                </Button>
               </CardContent>
             </Card>
           ))}
