@@ -14,7 +14,7 @@ export default function Footer() {
           
           <div className="text-center md:text-right">
             <p className="text-gray-600 text-sm">
-              © 2025 Sarah Johnson. All rights reserved.
+              © 2025 Sorin Tanasa, PhD. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs mt-1">
               Building meaningful connections, one conversation at a time.

@@ -21,10 +21,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <Heart className="text-white text-sm" size={16} />
+            <div className="w-20 h-20">
+              <object data="/src/images/logo.svg" type="image/svg+xml" className="w-full h-full"></object>
             </div>
-            <span className="text-xl font-semibold text-gray-900">ConnectCoach</span>
+            <span className="text-xl font-semibold text-gray-900">Community Coaching</span>
           </Link>
           
           {/* Desktop Navigation */}

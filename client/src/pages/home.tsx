@@ -12,7 +12,7 @@ export default function Home() {
           <AnimatedLogo />
           
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in">
-            Sarah Johnson
+            Sorin Tanasa, PhD
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 animate-slide-up">
             Personal Connection Coach

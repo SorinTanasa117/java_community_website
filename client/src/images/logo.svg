@@ -1,0 +1,92 @@
+<svg
+  width="200"
+  height="200"
+  viewBox="0 0 200 200"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <style>
+    <![CDATA[
+    /* Keyframes for node animation: fade in, scale up, and move to final position */
+    @keyframes node-connect {
+      0% {
+        opacity: 0;
+        transform: translate(var(--initial-x), var(--initial-y)) scale(0.5);
+      }
+      70% { /* Nodes move and scale up */
+        opacity: 1;
+        transform: translate(0, 0) scale(1.1);
+      }
+      100% { /* Settle at final position and scale */
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    /* Keyframes for line drawing animation */
+    @keyframes line-draw {
+      0% {
+        stroke-dashoffset: 200; /* Start with line fully hidden */
+        opacity: 0;
+      }
+      100% {
+        stroke-dashoffset: 0; /* End with line fully drawn */
+        opacity: 1;
+      }
+    }
+
+    /* Styles for animated nodes */
+    .animated-node {
+      fill: #6366F1; /* Indigo 500 */
+      stroke: #4F46E5; /* Indigo 600 */
+      stroke-width: 2;
+      opacity: 0; /* Start hidden */
+      transform-origin: center center; /* Ensure scaling and translation work correctly */
+      animation: node-connect 2s ease-out forwards; /* Play once and stop at end state */
+    }
+
+    /* Styles for animated lines */
+    .animated-line {
+      stroke: #4F46E5; /* Indigo 600 */
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 200; /* Needs to be larger than the longest path length */
+      stroke-dashoffset: 200; /* Start with line hidden */
+      opacity: 0; /* Start hidden */
+      animation: line-draw 1s ease-out forwards; /* Play once and stop at end state */
+      animation-fill-mode: forwards;
+    }
+    ]]>
+  </style>
+
+  <path d="M 150.000 100.000 L 135.355 135.355" class="animated-line" style="animation-delay: 2.00s;"/>
+  <path d="M 135.355 135.355 L 100.000 150.000" class="animated-line" style="animation-delay: 2.05s;"/>
+  <path d="M 100.000 150.000 L 64.645 135.355" class="animated-line" style="animation-delay: 2.10s;"/>
+  <path d="M 64.645 135.355 L 50.000 100.000" class="animated-line" style="animation-delay: 2.15s;"/>
+  <path d="M 50.000 100.000 L 64.645 64.645" class="animated-line" style="animation-delay: 2.20s;"/>
+  <path d="M 64.645 64.645 L 100.000 50.000" class="animated-line" style="animation-delay: 2.25s;"/>
+  <path d="M 100.000 50.000 L 135.355 64.645" class="animated-line" style="animation-delay: 2.30s;"/>
+  <path d="M 135.355 64.645 L 150.000 100.000" class="animated-line" style="animation-delay: 2.35s;"/>
+  <path d="M 150.000 100.000 L 50.000 100.000" class="animated-line" style="animation-delay: 2.40s;"/>
+  <path d="M 135.355 135.355 L 64.645 64.645" class="animated-line" style="animation-delay: 2.45s;"/>
+  <path d="M 100.000 150.000 L 100.000 50.000" class="animated-line" style="animation-delay: 2.50s;"/>
+  <path d="M 64.645 135.355 L 135.355 64.645" class="animated-line" style="animation-delay: 2.55s;"/>
+  <path d="M 150.000 100.000 L 100.000 150.000" class="animated-line" style="animation-delay: 2.60s;"/>
+  <path d="M 135.355 135.355 L 64.645 135.355" class="animated-line" style="animation-delay: 2.65s;"/>
+  <path d="M 100.000 150.000 L 50.000 100.000" class="animated-line" style="animation-delay: 2.70s;"/>
+  <path d="M 64.645 135.355 L 64.645 64.645" class="animated-line" style="animation-delay: 2.75s;"/>
+  <path d="M 50.000 100.000 L 100.000 50.000" class="animated-line" style="animation-delay: 2.80s;"/>
+  <path d="M 64.645 64.645 L 135.355 64.645" class="animated-line" style="animation-delay: 2.85s;"/>
+  <path d="M 100.000 50.000 L 150.000 100.000" class="animated-line" style="animation-delay: 2.90s;"/>
+  <path d="M 135.355 64.645 L 135.355 135.355" class="animated-line" style="animation-delay: 2.95s;"/>
+
+  <circle cx="150.000" cy="100.000" r="8" class="animated-node" style="--initial-x: 30.000px; --initial-y: 0.000px; animation-delay: 0.00s;"/>
+  <circle cx="135.355" cy="135.355" r="8" class="animated-node" style="--initial-x: 21.213px; --initial-y: 21.213px; animation-delay: 0.08s;"/>
+  <circle cx="100.000" cy="150.000" r="8" class="animated-node" style="--initial-x: 0.000px; --initial-y: 30.000px; animation-delay: 0.16s;"/>
+  <circle cx="64.645" cy="135.355" r="8" class="animated-node" style="--initial-x: -21.213px; --initial-y: 21.213px; animation-delay: 0.24s;"/>
+  <circle cx="50.000" cy="100.000" r="8" class="animated-node" style="--initial-x: -30.000px; --initial-y: 0.000px; animation-delay: 0.32s;"/>
+  <circle cx="64.645" cy="64.645" r="8" class="animated-node" style="--initial-x: -21.213px; --initial-y: -21.213px; animation-delay: 0.40s;"/>
+  <circle cx="100.000" cy="50.000" r="8" class="animated-node" style="--initial-x: 0.000px; --initial-y: -30.000px; animation-delay: 0.48s;"/>
+  <circle cx="135.355" cy="64.645" r="8" class="animated-node" style="--initial-x: 21.213px; --initial-y: -21.213px; animation-delay: 0.56s;"/>
+</svg>

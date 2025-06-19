@@ -20,8 +20,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
       
       if (emailSent) {
-        console.log("Contact email sent successfully to tanasa.torin@gmail.com");
-        res.json({ 
+        console.log("Contact email sent successfully to tanasa.sorin@gmail.com");
+        res.json({
           success: true, 
           message: "Thank you for your message! I'll get back to you within 24 hours." 
         });
@@ -41,9 +41,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       } else {
         console.error("Contact form error:", error);
-        res.status(500).json({ 
-          success: false, 
-          message: "Something went wrong. Please try again later." 
+        res.status(500).json({
+          success: false,
+          message: (error as Error).message || "Something went wrong. Please try again later.",
         });
       }
     }
@@ -116,7 +116,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       res.send(html);
     } catch (error) {
-      res.status(500).send(`<h1>Error</h1><p>Failed to load messages: ${error.message}</p>`);
+      res.status(500).send(`<h1>Error</h1><p>Failed to load messages: ${(error as Error).message}</p>`);
     }
   });
 

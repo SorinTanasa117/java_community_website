@@ -173,7 +173,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Email</p>
-                      <p className="text-gray-600">sarah@connectcoach.com</p>
+                      <p className="text-gray-600">tanasa.sorin@gmail.com</p>
                     </div>
                   </div>
                   
@@ -205,7 +205,7 @@ export default function Contact() {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Follow & Connect</h3>
                 <div className="space-y-4">
-                  <a href="#" className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                  <a href="https://wa.me/qr/SEBKB7CWC6NWB1" className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
                       <FaWhatsapp className="text-white" size={20} />
                     </div>
@@ -215,7 +215,7 @@ export default function Contact() {
                     </div>
                   </a>
                   
-                  <a href="#" className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                  <a href="https://www.linkedin.com/in/sorin-tanasa/" className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                       <Linkedin className="text-white" size={20} />
                     </div>
@@ -225,7 +225,7 @@ export default function Contact() {
                     </div>
                   </a>
                   
-                  <a href="#" className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                  <a href="https://www.meetup.com/members/191312989/" className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center">
                       <Users className="text-white" size={20} />
                     </div>
