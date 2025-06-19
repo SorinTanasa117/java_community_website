@@ -82,6 +82,7 @@ const services = [
     duration: "6-month journey",
     format: "Monthly in-person ceremonies + online support",
     investment: "Includes all tea and equipment",
+    investment: "Includes all tea and equipment",
     image: "/images/tea.png"
   },
 ];
