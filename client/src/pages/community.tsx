@@ -25,7 +25,7 @@ const communities: CommunityData[] = [
     details: [
 "There is a world of ideas lying outside of social media and the greater Internet. These are the ideas living in our minds: hopes, dreams, beliefs and questions.",
 
-"I call this world of ideas the IdeaVerse.
+"I call this world of ideas the IdeaVerse.",
 
 "We have all come to understand recently that digital medias don't reveal our true ideas, because the truth doesn't always sell or gives us the relationships we seek.",
 
