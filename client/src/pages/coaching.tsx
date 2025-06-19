@@ -177,8 +177,8 @@ export default function Coaching() {
               <div className="space-y-8">
                 <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
                 <img
-                  src="/images/meeting.png"
-                  alt="Effective Meetings"
+                  src={service.image}
+                  alt={service.title}
                   className="w-full h-64 object-cover"
                 />
                 </div>
