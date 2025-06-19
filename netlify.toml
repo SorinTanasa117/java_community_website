@@ -1,7 +1,8 @@
 [build]
   command = "npm run build"
-  publish = "dist/public"
-  functions = "dist"
+  publish = "dist/public" 
 
-[build.environment]
-  NODE_ENV = "production"
+[functions]
+  directory = "dist" 
+  node_bundler = "esbuild" 
+  node_version = "20"
