@@ -29,7 +29,7 @@ const services = [
     duration: "8-week program",
     format: "1-on-1 or small group sessions",
     investment: "Custom pricing based on scope",
-    image: "src/images/meeting.png"
+    image: "images/meeting.png"
   },
   {
     title: "Community Building",
@@ -56,7 +56,7 @@ const services = [
     duration: "12-week intensive",
     format: "Group workshops + individual mentoring",
     investment: "Sliding scale available",
-    image: "src/images/community.png"
+    image: "images/community.png"
   },
   {
     title: "Tea Mastery",
@@ -82,7 +82,7 @@ const services = [
     duration: "6-month journey",
     format: "Monthly in-person ceremonies + online support",
     investment: "Includes all tea and equipment",
-    image: "src/images/tea.png"
+    image: "images/tea.png"
   },
 ];
 
