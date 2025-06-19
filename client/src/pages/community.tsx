@@ -23,11 +23,15 @@ const communities: CommunityData[] = [
     description: "A creative hub where innovators, entrepreneurs, and dreamers come together to transform ideas into reality. We foster collaboration through monthly ideation sessions, peer mentoring, and project partnerships.",
     expandedDescription: "IdeaVerse is more than just a community—it's a launchpad for transformative ideas. Our members include startup founders, creative professionals, and visionary thinkers who believe in the power of collaboration to change the world.",
     details: [
-      "Monthly Innovation Sessions where members pitch ideas and receive feedback",
-      "Peer Mentorship Program pairing experienced entrepreneurs with newcomers",
-      "Project Partnership Platform for finding collaborators",
-      "Resource Library with templates, guides, and tools for ideation",
-      "Demo Days where members showcase their progress and celebrate wins"
+"There is a world of ideas lying outside of social media and the greater Internet. These are the ideas living in our minds: hopes, dreams, beliefs and questions.",
+
+"I call this world of ideas the IdeaVerse.
+
+"We have all come to understand recently that digital medias don't reveal our true ideas, because the truth doesn't always sell or gives us the relationships we seek.",
+
+"IdeaVerse meetings are a place I created to allow participants to enter a healthy dialogue and join each other in communities, as a refuge from the increasingly alienating virtual world.",
+
+"For more details and next events, please check out IdeaVerse Dialogues Meetup.com events on the link below.
     ],
     stats: {
       members: "200+ Active Members",
@@ -47,7 +51,7 @@ const communities: CommunityData[] = [
 
     "This meetup is organized by my dear friend Justin Mainous, using the same discussion format I established in 2023 and consistently allowing open and enlightning onversations that have brought countless people together as a community ever since.",
 
-    "For more details and next events, please check out Agora Network events on Meetup.com."
+    "For more details and next events, please check out Agora Network  Meetup.com events on the link below."
     ],
     stats: {
       members: "150+ Professionals",
