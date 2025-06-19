@@ -4,7 +4,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check, ArrowLeft, Users, Clock, Target, Award, BookOpen, Coffee } from "lucide-react";
 import { useLocation } from "wouter";
 
-const services = [
+interface ServiceData {
+  title: string;
+  description: string;
+  expandedDescription: string;
+  details: string[];
+  stats: {
+    members: string;
+    events: string;
+    projects: string;
+  };
+  image: string;
+}
+
+const services: ServiceData[]= [
+
   {
     title: "Effective Meetings",
     description: "Transform your meetings from time-wasters into powerful collaboration sessions. Learn facilitation techniques, agenda design, and engagement strategies that drive results and leave participants energized.",
