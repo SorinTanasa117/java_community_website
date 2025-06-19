@@ -268,11 +268,6 @@ export default function Coaching() {
                 animationDelay: `${index * 0.1}s`
               }}
             >
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-64 object-cover"
-              />
               <CardContent className="p-6">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
@@ -297,7 +292,16 @@ export default function Coaching() {
             </Card>
           ))}
         </div>
-        
+      
+
+         <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
+           <img
+             src={service.image}
+             alt={service.title}
+             className="w-full h-64 object-cover"
+           />
+         </div>
+             
         <div className="text-center mt-16 bg-gray-50 rounded-2xl p-8">
           <h3 className="text-2xl font-semibold text-gray-900 mb-4">Ready to Start Your Journey?</h3>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
