@@ -22,7 +22,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-20 h-20">
-              <object data="/src/images/logo.svg" type="image/svg+xml" className="w-full h-full"></object>
+              <object data="images/logo.svg" type="image/svg+xml" className="w-full h-full"></object>
             </div>
             <span className="text-xl font-semibold text-gray-900">Community Coaching</span>
           </Link>
