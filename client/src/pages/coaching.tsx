@@ -9,11 +9,11 @@ interface ServiceData {
   description: string;
   expandedDescription: string;
   details: string[];
-  stats: {
-    members: string;
-    events: string;
-    projects: string;
-  };
+  features?: string[];
+  outcomes?: string[];
+  duration?: string;
+  format?: string;
+  investment?: string;
   image: string;
 }
 
@@ -96,7 +96,6 @@ const services: ServiceData[]= [
     duration: "6-month journey",
     format: "Monthly in-person ceremonies + online support",
     investment: "Includes all tea and equipment",
-    investment: "Includes all tea and equipment",
     image: "/images/tea.png"
   },
 ];
@@ -164,7 +163,7 @@ export default function Coaching() {
                       Key Outcomes
                     </h3>
                     <ul className="space-y-3">
-                      {service.outcomes.map((outcome, index) => (
+                      {service.outcomes?.map((outcome, index) => (
                         <li key={index} className="flex items-start">
                           <Check className="text-accent mr-3 mt-1 flex-shrink-0" size={16} />
                           <span className="text-gray-600 leading-relaxed">{outcome}</span>
@@ -274,7 +273,7 @@ export default function Coaching() {
                   {service.description}
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600 mb-6">
-                  {service.features.map((feature, featureIndex) => (
+                  {service.features?.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center">
                       <Check className="text-accent mr-2" size={16} />
                       {feature}
@@ -294,12 +293,18 @@ export default function Coaching() {
         </div>
       
 
+       
+
          <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
-           <img
-             src={service.image}
-             alt={service.title}
-             className="w-full h-64 object-cover"
-           />
+           {services.map((service, index) => (
+             service.image && (
+               <img
+                 src={service.image}
+                 alt={service.title}
+                 className="w-full h-64 object-cover"
+               />
+             )
+           ))}
          </div>
              
         <div className="text-center mt-16 bg-gray-50 rounded-2xl p-8">
