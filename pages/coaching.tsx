@@ -167,6 +167,7 @@ export default function Coaching() {
                   src="/images/meeting.png"
                   alt="Effective Meetings"
                   className="w-full h-64 object-cover"
+                  loading="lazy"
                 />
                 </div>
                 
