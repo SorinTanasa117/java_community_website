@@ -10,7 +10,7 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 items-center md:text-left">
             <div className="text-center md:text-left">
                 <img
-                  src="src/images/Sorin.png"
+                  src="/images/Sorin.png"
                   alt="Effective Meetings"
                   className="w-full h-full object-cover"
                 />
