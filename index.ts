@@ -60,6 +60,10 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
+  function serveStatic(app: any) {
+    app.use(express.static('dist/public'));
+  }
+
   // ALWAYS serve the app on port 5000
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
