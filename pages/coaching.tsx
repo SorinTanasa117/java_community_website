@@ -29,7 +29,7 @@ const services = [
     duration: "8-week program",
     format: "1-on-1 or small group sessions",
     investment: "Custom pricing based on scope",
-    image: "images/meeting.png"
+    image: "/images/meeting.png"
   },
   {
     title: "Community Building",
@@ -56,7 +56,7 @@ const services = [
     duration: "12-week intensive",
     format: "Group workshops + individual mentoring",
     investment: "Sliding scale available",
-    image: "images/community.png"
+    image: "/images/community.png"
   },
   {
     title: "Tea Mastery",
@@ -82,7 +82,7 @@ const services = [
     duration: "6-month journey",
     format: "Monthly in-person ceremonies + online support",
     investment: "Includes all tea and equipment",
-    image: "images/tea.png"
+    image: "/images/tea.png"
   },
 ];
 
@@ -163,7 +163,7 @@ export default function Coaching() {
               <div className="space-y-8">
                 <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
                 <img
-                  src="images/meeting.png"
+                  src="/images/meeting.png"
                   alt="Effective Meetings"
                   className="w-full h-64 object-cover"
                 />
