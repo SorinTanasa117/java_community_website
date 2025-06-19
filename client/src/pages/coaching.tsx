@@ -15,7 +15,7 @@ const services = [
     ],
     expandedDescription: "In today's fast-paced world, meetings can either be the catalyst for breakthrough collaboration or the biggest drain on productivity. Through my Effective Meetings coaching, you'll master the art and science of leading sessions that people actually want to attend.",
     details: [
-    "Imagine a time when everyone spoke one language, helping them build a great civilization able of building soaring towers. That is, until divine intervention caused them to speak different tongues, bringing their civilization to it's knees.",
+    "A time when everyone spoke one language, helping them build a great civilization able of building soaring towers. That is, until divine intervention caused them to speak different tongues, bringing their civilization to it's knees.",
     "This isn't just a mythical story; it's an allegory of human communication: we speak and listen to build things together, but constantly misunderstandings get in the way of connection and progress.",
     "With over five years as a Toastmaster and countless philosophical discussions, I've dedicated myself to understanding this challenge.",
     "Through this journey, I've perfected a communication framework that minimizes misunderstandings, ensuring you and your team work in harmony on any project."
@@ -50,7 +50,7 @@ const services = [
     outcomes: [
       "Design community structures that scale authentically",
       "Create rituals and traditions that deepen member connection",
-      "Develop sustainable engagement without burning out leaders",
+      "Learn from your diverse abackgroudn and skilled members",
       "Build resilient communities that thrive through challenges"
     ],
     duration: "12-week intensive",
@@ -68,7 +68,7 @@ const services = [
     ],
     expandedDescription: "The way of tea is the way of presence. Through the ancient practice of Gongfu Cha, discover how slowing down and creating sacred space can transform your leadership style and deepen your capacity for authentic connection with others.",
     details: [
-    "Discover the intricate art of hosting a Chinese tea ceremony, a practice rich in history and philosophical depth.",
+    "Discovering the intricate art of hosting a Chinese tea ceremony, a practice rich in history and philosophical depth.",
     "This course will guide you through the elegant traditions of Gongfu Cha, focusing on its philosophy, technique, and hosting etiquette.",
     "Beyond the technical skills of brewing tea, we'll explore how this ritual cultivates mindfulness and connection.",
     "This course is suitable for people looking to connect more with the present moment and who have an appreciation of the meaning of leading through service."
@@ -163,7 +163,7 @@ export default function Coaching() {
               <div className="space-y-8">
                 <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
                 <img
-                  src="src/images/meeting.png"
+                  src="images/meeting.png"
                   alt="Effective Meetings"
                   className="w-full h-64 object-cover"
                 />
