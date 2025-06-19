@@ -34,7 +34,7 @@ const communities: CommunityData[] = [
       events: "24 Events This Year",
       projects: "50+ Projects Launched",
     },
-    image: "src/images/ideaverse.png",
+    image: "images/ideaverse.png",
   },
   {
     title: "Agora Network",
@@ -54,7 +54,7 @@ const communities: CommunityData[] = [
       discussions: "Weekly Sessions",
       experts: "30+ Industry Leaders",
     },
-    image: "src/images/agora.png",
+    image: "images/agora.png",
   },
   {
     title: "Chinese Tea Ceremony",
@@ -74,7 +74,7 @@ const communities: CommunityData[] = [
       tradition: "1000+ Years Old",
       varieties: "20+ Tea Types",
     },
-    image: "src/images/cha.png",
+    image: "images/cha.png",
   },
 ];
 
