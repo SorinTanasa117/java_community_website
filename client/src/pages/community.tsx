@@ -31,7 +31,7 @@ const communities: CommunityData[] = [
 
 "IdeaVerse meetings are a place I created to allow participants to enter a healthy dialogue and join each other in communities, as a refuge from the increasingly alienating virtual world.",
 
-"For more details and next events, please check out IdeaVerse Dialogues Meetup.com events on the link below.
+"For more details and next events, please check out IdeaVerse Dialogues Meetup.com events on the link below."
     ],
     stats: {
       members: "200+ Active Members",
