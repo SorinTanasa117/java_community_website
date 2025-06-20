@@ -70,7 +70,7 @@ const services: ServiceData[]= [
     ],
     duration: "8 weekly meetings",
     format: "Group workshops + individual mentoring",
-    investment: "Time, good will and a heads-up fee of 5000 czk",
+    investment: "Time, good will + fee on agreement",
     image: "/images/community.png"
   },
   {
@@ -96,7 +96,7 @@ const services: ServiceData[]= [
     ],
     duration: "6-month journey",
     format: "Monthly in-person ceremonies + online support",
-    investment: "2000czk/session + tea and teaware investments on your part",
+    investment: "Tea and teaware + fee on agreement",
     image: "/images/tea.png"
   },
 ];
