@@ -220,6 +220,13 @@ export default function Coaching() {
                 </div>
               </div>
             </div>
+            <Button
+              onClick={handleCollapse}
+              variant="outline"
+              className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200"
+            >
+              View All Services
+            </Button>
           </div>
         </div>
       </div>
