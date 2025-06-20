@@ -5,7 +5,6 @@ export default function About() {
     <div className="min-h-screen bg-white text-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">About Me</h1>
           
           <div className="grid md:grid-cols-2 gap-12 items-center md:text-left">
             <div className="text-center md:text-left">
