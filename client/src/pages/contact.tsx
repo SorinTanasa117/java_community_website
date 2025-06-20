@@ -187,7 +187,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Availability</p>
-                      <p className="text-gray-600">Monday - Friday, 9AM - 6PM PST</p>
+                      <p className="text-gray-600">Monday - Friday, 9AM - 6PM CET</p>
                     </div>
                   </div>
                 </div>
@@ -205,7 +205,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">WhatsApp</p>
-                      <p className="text-sm text-gray-600">Quick messaging & voice calls</p>
+                      <p className="text-sm text-gray-600">Quick messaging and access to personal growth communities, on agreement</p>
                     </div>
                   </a>
                   
@@ -215,7 +215,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">LinkedIn</p>
-                      <p className="text-sm text-gray-600">Professional updates & articles</p>
+                      <p className="text-sm text-gray-600">My technical past and growth facilitating present</p>
                     </div>
                   </a>
                   
@@ -225,7 +225,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Meetup.com</p>
-                      <p className="text-sm text-gray-600">Join our local events</p>
+                      <p className="text-sm text-gray-600">Let's connect on Meetup</p>
                     </div>
                   </a>
                 </div>
