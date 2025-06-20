@@ -127,16 +127,6 @@ export default function Coaching() {
               Back to Services
             </Button>
           </div>
-          <div className="mb-8">
-            <Button
-              onClick={handleCollapse}
-              variant="ghost"
-              className="flex items-center text-gray-600 hover:text-primary"
-            >
-              <ArrowLeft className="mr-2" size={20} />
-              Back to Services
-            </Button>
-          </div>
           
           <div className={`${
             expandedIndex === 0 ? 'animate-slide-in-left' :
