@@ -8,8 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import { Mail, Clock, Calendar, MessageSquare, Linkedin, Users } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import { Icon } from "@iconify/react";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -145,7 +144,7 @@ export default function Contact() {
                     </>
                   ) : (
                     <>
-                      <MessageSquare className="mr-2" size={16} />
+                      <Icon icon="mdi:message" className="mr-2" width={16} height={16} />
                       Send Message
                     </>
                   )}
@@ -162,8 +161,8 @@ export default function Contact() {
                 
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                      <Mail className="text-white" size={20} />
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center">
+                      <Icon icon="mdi:email" className="text-primary" width={20} height={20} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Email</p>
@@ -172,8 +171,8 @@ export default function Contact() {
                   </div>
                   
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
-                      <Clock className="text-white" size={20} />
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center">
+                      <Icon icon="mdi:clock" className="text-accent" width={20} height={20} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Response Time</p>
@@ -182,12 +181,12 @@ export default function Contact() {
                   </div>
                   
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center">
-                      <Calendar className="text-white" size={20} />
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center">
+                      <Icon icon="mdi:calendar" className="text-indigo-500" width={20} height={20} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Availability</p>
-                      <p className="text-gray-600">Monday - Friday, 9AM - 6PM CET</p>
+                      <p className="text-gray-600">Monday - Friday, 9AM - 6PM PST</p>
                     </div>
                   </div>
                 </div>
@@ -200,32 +199,32 @@ export default function Contact() {
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Follow & Connect</h3>
                 <div >
                   <a href="https://wa.me/qr/SEBKB7CWC6NWB1" className="flex items-center space-x-4 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
-                    <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
-                      <FaWhatsapp className="text-white" size={20} />
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+                      <Icon icon="mdi:whatsapp" className="text-green-500" width={20} height={20} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">WhatsApp</p>
-                      <p className="text-sm text-gray-600">Quick messaging and access to personal growth communities, on agreement</p>
+                      <p className="text-sm text-gray-600">Quick messaging & voice calls</p>
                     </div>
                   </a>
                   
                   <a href="https://www.linkedin.com/in/sorin-tanasa/" className="flex items-center space-x-4 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
-                    <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                      <Linkedin className="text-white" size={20} />
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+                      <Icon icon="mdi:linkedin" className="text-blue-600" width={20} height={20} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">LinkedIn</p>
-                      <p className="text-sm text-gray-600">My technical past and growth facilitating present</p>
+                      <p className="text-sm text-gray-600">Professional updates & articles</p>
                     </div>
                   </a>
                   
                   <a href="https://www.meetup.com/members/191312989/" className="flex items-center space-x-4 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
-                    <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center">
-                      <Users className="text-white" size={20} />
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+                      <Icon icon="mdi:account-multiple" className="text-red-500" width={20} height={20} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Meetup.com</p>
-                      <p className="text-sm text-gray-600">Let's connect on Meetup</p>
+                      <p className="text-sm text-gray-600">Join our local events</p>
                     </div>
                   </a>
                 </div>
