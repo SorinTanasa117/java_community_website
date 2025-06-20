@@ -106,6 +106,7 @@ export default function Coaching() {
 
   const handleExpand = (index: number) => {
     setExpandedIndex(index);
+    window.scrollTo(0, 0);
   };
 
   const handleCollapse = () => {
@@ -121,7 +122,7 @@ export default function Coaching() {
             <Button 
               onClick={handleCollapse}
               variant="ghost"
-              className="flex items-center text-gray-600 hover:text-primary"
+              className="sticky top-0 flex items-center text-gray-600 hover:text-primary"
             >
               <ArrowLeft className="mr-2" size={20} />
               Back to Services
