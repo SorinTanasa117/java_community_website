@@ -13,6 +13,8 @@ interface CommunityData {
     members: string;
     events: string;
     projects: string;
+    discussions?: string;
+    ceremonies?: string;
   };
   image: string;
 }
@@ -97,13 +99,13 @@ export default function Community() {
   if (expandedIndex !== null) {
     const community = communities[expandedIndex];
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="mb-8">
             <Button 
               onClick={handleCollapse}
               variant="ghost"
-              className="flex items-center text-gray-600 hover:text-primary"
+              className="sticky top-0 flex items-center text-gray-600 hover:text-primary"
             >
               <ArrowLeft className="mr-2" size={20} />
               Back to Communities
