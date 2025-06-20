@@ -149,30 +149,36 @@ export default function Community() {
                </div>
                
                <div className="text-center space-y-4">
-                 <Button
-                   onClick={() => {
-                     window.location.href = "https://www.meetup.com/ideaverse-talks-ideas-that-shaped-our-reality";
-                   }}
-                   className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
-                 >
+                 {community.title === "IdeaVerse" && (
+                  <Button
+                    onClick={() => {
+                      window.location.href = "https://www.meetup.com/ideaverse-talks-ideas-that-shaped-our-reality";
+                    }}
+                    className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
+                  >
                    Join IdeaVerse
-                 </Button>
-                 <Button
-                   onClick={() => {
-                     window.location.href = "https://www.meetup.com/prague-stoicism-meetup-group";
-                   }}
-                   className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
-                 >
+                  </Button>
+                 )}
+                 {community.title === "Agora Network" && (
+                  <Button
+                    onClick={() => {
+                      window.location.href = "https://www.meetup.com/prague-stoicism-meetup-group";
+                    }}
+                    className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
+                  >
                    Join Agora Network
-                 </Button>
-                 <Button
-                   onClick={() => {
-                     window.location.href = "https://www.meetup.com/prague-stoicism-meetup-group";
-                   }}
-                   className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
-                 >
+                  </Button>
+                 )}
+                 {community.title === "Chinese Tea Ceremony" && (
+                  <Button
+                    onClick={() => {
+                      window.location.href = "https://www.meetup.com/prague-stoicism-meetup-group";
+                    }}
+                    className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
+                  >
                    Join Chinese Tea Ceremony
-                 </Button>
+                  </Button>
+                 )}
                  <Button
                    onClick={handleCollapse}
                    variant="outline"
