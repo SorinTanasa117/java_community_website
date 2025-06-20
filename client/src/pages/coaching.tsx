@@ -220,12 +220,6 @@ export default function Coaching() {
                 </div>
               </div>
             </div>
-              <Button
-                onClick={() => setLocation("/contact")}
-                className="bg-accent text-white px-8 py-3 rounded-lg hover:bg-emerald-700 transition-colors duration-200"
-              >
-                Get Started Today
-              </Button>
           </div>
         </div>
       </div>
