@@ -127,9 +127,19 @@ export default function Coaching() {
               Back to Services
             </Button>
           </div>
+          <div className="mb-8">
+            <Button
+              onClick={handleCollapse}
+              variant="ghost"
+              className="flex items-center text-gray-600 hover:text-primary"
+            >
+              <ArrowLeft className="mr-2" size={20} />
+              Back to Services
+            </Button>
+          </div>
           
           <div className={`${
-            expandedIndex === 0 ? 'animate-slide-in-left' : 
+            expandedIndex === 0 ? 'animate-slide-in-left' :
             expandedIndex === 2 ? 'animate-slide-in-right' : 
             'animate-slide-in-center'
           }`}>
@@ -217,6 +227,13 @@ export default function Coaching() {
                     Free 30-minute consultation to discuss your goals
                   </p>
                 </div>
+                <Button
+                  onClick={handleCollapse}
+                  variant="outline"
+                  className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200"
+                >
+                  View All Services
+                </Button>
               </div>
             </div>
             
