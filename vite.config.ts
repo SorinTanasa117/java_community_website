@@ -4,6 +4,9 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
+  optimizeDeps: {
+    include: ['@iconify/react'],
+  },
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -24,7 +27,6 @@ export default defineConfig({
       "@iconify/react": path.resolve(import.meta.dirname, "node_modules/@iconify/react"),
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
