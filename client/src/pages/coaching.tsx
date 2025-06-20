@@ -64,7 +64,7 @@ const services: ServiceData[]= [
     outcomes: [
       "Design community structures that scale authentically",
       "Create rituals and traditions that deepen member connection",
-      "Learn from your diverse background and skilled members",
+      "Learn from your diverse abackgroudn and skilled members",
       "Build resilient communities that thrive through challenges"
     ],
     duration: "12-week intensive",
@@ -219,15 +219,15 @@ export default function Coaching() {
                   </p>
                 </div>
               </div>
-            <div className="text-center">
-              <Button
-                onClick={handleCollapse}
-                variant="outline"
-                className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200"
-              >
-                View All Services
-              </Button>
             </div>
+            <Button
+              onClick={handleCollapse}
+              variant="outline"
+              className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200"
+            >
+              View All Services
+            </Button>
+          </div>
         </div>
       </div>
     );
