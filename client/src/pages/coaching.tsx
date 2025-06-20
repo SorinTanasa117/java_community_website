@@ -24,18 +24,18 @@ const services: ServiceData[]= [
     description: "Transform your meetings from time-wasters into powerful collaboration sessions. Learn facilitation techniques, agenda design, and engagement strategies that drive results and leave participants energized.",
     features: [
       "Meeting facilitation mastery",
-      "Agenda design & time management", 
+      "Agenda design & time management",
       "Participant engagement techniques"
     ],
     expandedDescription: "In today's fast-paced world, meetings can either be the catalyst for breakthrough collaboration or the biggest drain on productivity. Through my Effective Meetings coaching, you'll master the art and science of leading sessions that people actually want to attend.",
     details: [
-    "A time when everyone spoke one language, helping them build a great civilization able of building soaring towers. That is, until divine intervention caused them to speak different tongues, bringing their civilization to it's knees.",
+    "A time when everyone spoke one language, helping them build a great civilization able of building soaring towers. That is, until divine intervention caused them to speak different tongues, bringing their civilization to its knees.", // Corrected "it's" to "its"
     "This isn't just a mythical story; it's an allegory of human communication: we speak and listen to build things together, but constantly misunderstandings get in the way of connection and progress.",
     "With over five years as a Toastmaster and countless philosophical discussions, I've dedicated myself to understanding this challenge.",
     "Through this journey, I've perfected a communication framework that minimizes misunderstandings, ensuring you and your team work in harmony on any project."
     ],
     outcomes: [
-      "Develop a read for the flow of a conversation and steer it towards mutual undrstanding",
+      "Develop a read for the flow of a conversation and steer it towards mutual understanding", // Corrected typo "undrstanding"
       "Create psychological safety for authentic participation",
       "Learn proven conversation frameworks that ensure cooperation and clarity",
       "Build consensus efficiently without sacrificing diverse perspectives"
@@ -66,7 +66,7 @@ const services: ServiceData[]= [
       "Design community structures that scale authentically",
       "Create rituals and traditions that deepen member connection",
       "Learn from your people with diverse cultural backgrounds",
-      "Meet people who can support you in your projects and whocan call you their dependable partner"
+      "Meet people who can support you in your projects and who can call you their dependable partner" // Corrected typo "whocan"
     ],
     duration: "8 weekly meetings",
     format: "Group workshops + individual mentoring",
@@ -89,7 +89,7 @@ const services: ServiceData[]= [
     "This course is suitable for people looking to connect more with the present moment and who have an appreciation of the meaning of leading through service."
     ],
     outcomes: [
-      "Develop a read for the flow of a conversation and steer it towards mutual",
+      "Develop a read for the flow of a conversation and steer it towards mutual understanding", // Completed the sentence
       "Create meaningful ritual in your professional and personal life",
       "Master the art of deep listening and authentic response",
       "Use tea ceremony as a unique differentiator in your leadership approach"
@@ -120,7 +120,7 @@ export default function Coaching() {
       <div className="min-h-screen bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="mb-8">
-            <Button 
+            <Button
               onClick={handleCollapse}
               variant="ghost"
               className="sticky top-0 flex items-center text-gray-600 hover:text-primary"
@@ -129,10 +129,10 @@ export default function Coaching() {
               Back to Services
             </Button>
           </div>
-          
+
           <div className={`${
             expandedIndex === 0 ? 'animate-slide-in-left' :
-            expandedIndex === 2 ? 'animate-slide-in-right' : 
+            expandedIndex === 2 ? 'animate-slide-in-right' :
             'animate-slide-in-center'
           }`}>
             <div className="text-center mb-12">
@@ -141,7 +141,7 @@ export default function Coaching() {
                 {service.expandedDescription}
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div className="space-y-8">
                 <Card className="bg-gray-50 rounded-2xl shadow-lg">
@@ -157,7 +157,7 @@ export default function Coaching() {
                     </div>
                   </CardContent>
                 </Card>
-                
+
                 <Card className="bg-gray-50 rounded-2xl shadow-lg">
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
@@ -175,7 +175,7 @@ export default function Coaching() {
                   </CardContent>
                 </Card>
               </div>
-              
+
               <div className="space-y-8">
                 <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
                   <img
@@ -184,7 +184,7 @@ export default function Coaching() {
                     className="w-full h-64 object-cover"
                   />
                 </div>
-                
+
                 <Card className="bg-gray-50 rounded-2xl shadow-lg">
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
@@ -207,9 +207,9 @@ export default function Coaching() {
                     </div>
                   </CardContent>
                 </Card>
-                
+
                 <div className="text-center space-y-4">
-                  <Button 
+                  <Button
                     onClick={() => setLocation("/contact")}
                     className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
                   >
@@ -220,15 +220,17 @@ export default function Coaching() {
                   </p>
                 </div>
               </div>
-
             </div>
-                <Button
-                onClick={handleCollapse}
-                variant="outline"
-                className="bg-white text-primary border-2 items-center border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200"
-                >
-                View All Services
-                </Button>
+            {/* MOVED THE BUTTON OUTSIDE THE GRID FOR FULL-WIDTH CENTERING */}
+          </div>
+          <div className="text-center mt-8"> {/* This div is now outside the grid */}
+            <Button
+              onClick={handleCollapse}
+              variant="outline"
+              className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200"
+            >
+              View All Services
+            </Button>
           </div>
         </div>
       </div>
@@ -243,13 +245,13 @@ export default function Coaching() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             <i>'The highest good is like water.<br/>
             Water benefits all things and does not compete.<br/>
-            It stays in the lowly places that others disdain.<br/>                
+            It stays in the lowly places that others disdain.<br/>
             Therefore it is close to the Tao.'<br/></i>
             <br/>
             Lao Tzu, Tao Te Ching (on leadership), Chapter 8.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card
@@ -291,19 +293,19 @@ export default function Coaching() {
           ))}
         </div>
 
-         <div className="text-center mt-16 bg-gray-50 rounded-2xl p-8">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4">Ready to Start Your Journey?</h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Book a complimentary discovery session to explore how coaching can transform your relationships and leadership impact.
-          </p>
-          <Button 
-            onClick={() => setLocation("/contact")}
-            className="bg-accent text-white px-8 py-3 rounded-lg hover:bg-emerald-700 transition-colors duration-200"
-          >
-            Schedule Discovery Session
-          </Button>
-        </div>
-      </div>
-    </div>
-  );
+           <div className="text-center mt-16 bg-gray-50 rounded-2xl p-8">
+           <h3 className="text-2xl font-semibold text-gray-900 mb-4">Ready to Start Your Journey?</h3>
+           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+             Book a complimentary discovery session to explore how coaching can transform your relationships and leadership impact.
+           </p>
+           <Button
+             onClick={() => setLocation("/contact")}
+             className="bg-accent text-white px-8 py-3 rounded-lg hover:bg-emerald-700 transition-colors duration-200"
+           >
+             Schedule Discovery Session
+           </Button>
+         </div>
+       </div>
+     </div>
+   );
 }
