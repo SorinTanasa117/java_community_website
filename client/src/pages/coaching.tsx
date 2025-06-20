@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, ArrowLeft, Users, Clock, Target, Award, BookOpen, Coffee } from "lucide-react";
@@ -115,7 +115,7 @@ export default function Coaching() {
   if (expandedIndex !== null) {
     const service = services[expandedIndex];
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="mb-8">
             <Button 
@@ -155,86 +155,26 @@ export default function Coaching() {
                     </div>
                   </CardContent>
                 </Card>
-                
-                <Card className="bg-gray-50 rounded-2xl shadow-lg">
-                  <CardContent className="p-8">
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
-                      <Target className="mr-3 text-accent" size={24} />
-                      Key Outcomes
-                    </h3>
-                    <ul className="space-y-3">
-                      {service.outcomes?.map((outcome, index) => (
-                        <li key={index} className="flex items-start">
-                          <Check className="text-accent mr-3 mt-1 flex-shrink-0" size={16} />
-                          <span className="text-gray-600 leading-relaxed">{outcome}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
               </div>
-              
-              <div className="space-y-8">
-                <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-64 object-cover"
-                />
-                </div>
-                
-                <Card className="bg-gray-50 rounded-2xl shadow-lg">
-                  <CardContent className="p-8">
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
-                      <Clock className="mr-3 text-indigo-500" size={24} />
-                      Program Details
-                    </h3>
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span className="text-gray-600 font-medium">Duration</span>
-                        <span className="text-primary font-semibold">{service.duration}</span>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span className="text-gray-600 font-medium">Format</span>
-                        <span className="text-primary font-semibold">{service.format}</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-600 font-medium">Investment</span>
-                        <span className="text-primary font-semibold">{service.investment}</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-                
-                <div className="text-center space-y-4">
-                  <Button 
-                    onClick={() => setLocation("/contact")}
-                    className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
-                  >
-                    Schedule Discovery Call
-                  </Button>
-                  <p className="text-sm text-gray-500">
-                    Free 30-minute consultation to discuss your goals
-                  </p>
-                </div>
-              </div>
-            </div>
             
-            <div className="text-center">
-              <Button 
-                onClick={handleCollapse}
-                variant="outline"
-                className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200 mr-4"
-              >
-                View All Services
-              </Button>
-              <Button 
-                onClick={() => setLocation("/contact")}
-                className="bg-accent text-white px-8 py-3 rounded-lg hover:bg-emerald-700 transition-colors duration-200"
-              >
-                Get Started Today
-              </Button>
+              <div className="text-center space-y-4">
+                <Button
+                  onClick={() => setLocation("/contact")}
+                  className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
+                >
+                  Schedule Discovery Call
+                </Button>
+                <Button
+                  onClick={handleCollapse}
+                  variant="outline"
+                  className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200"
+                >
+                  View All Services
+                </Button>
+              </div>
             </div>
+          
+            
           </div>
         </div>
       </div>
@@ -247,26 +187,31 @@ export default function Coaching() {
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Coaching Services</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                <i>'The highest good is like water.<br></br>
-                Water benefits all things and does not compete.<br></br>
-                It stays in the lowly places that others disdain.<br></br>                
-                Therefore it is close to the Tao.'<br></br></i>
-                <br></br>
-                Lao Tzu, Tao Te Ching (on leadership), Chapter 8.
+            <i>'The highest good is like water.<br/>
+            Water benefits all things and does not compete.<br/>
+            It stays in the lowly places that others disdain.<br/>                
+            Therefore it is close to the Tao.'<br/></i>
+            <br/>
+            Lao Tzu, Tao Te Ching (on leadership), Chapter 8.
           </p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card 
+            <Card
               key={index}
-              className={`bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
                 expandedIndex === null ? 'animate-fade-in' : ''
               }`}
               style={{
                 animationDelay: `${index * 0.1}s`
               }}
             >
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-48 object-cover"
+              />
               <CardContent className="p-6">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
@@ -291,23 +236,8 @@ export default function Coaching() {
             </Card>
           ))}
         </div>
-      
 
-       
-
-         <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
-           {services.map((service, index) => (
-             service.image && (
-               <img
-                 src={service.image}
-                 alt={service.title}
-                 className="w-full h-64 object-cover"
-               />
-             )
-           ))}
-         </div>
-             
-        <div className="text-center mt-16 bg-gray-50 rounded-2xl p-8">
+         <div className="text-center mt-16 bg-gray-50 rounded-2xl p-8">
           <h3 className="text-2xl font-semibold text-gray-900 mb-4">Ready to Start Your Journey?</h3>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
             Book a complimentary discovery session to explore how coaching can transform your relationships and leadership impact.
