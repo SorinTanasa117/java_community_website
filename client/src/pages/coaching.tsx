@@ -218,15 +218,14 @@ export default function Coaching() {
                     Free 30-minute consultation to discuss your goals
                   </p>
                 </div>
-                <Button
-                  onClick={handleCollapse}
-                  variant="outline"
-                  className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200"
-                >
-                  View All Services
-                </Button>
               </div>
             </div>
+              <Button
+                onClick={() => setLocation("/contact")}
+                className="bg-accent text-white px-8 py-3 rounded-lg hover:bg-emerald-700 transition-colors duration-200"
+              >
+                Get Started Today
+              </Button>
           </div>
         </div>
       </div>
