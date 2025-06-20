@@ -47,8 +47,8 @@ const communities: CommunityData[] = [
   },
   {
     title: "Agora Network",
-    description: "A professional network dedicated to meaningful dialogue and knowledge sharing. We believe in the power of authentic conversations to drive innovation and create lasting professional relationships.",
-    expandedDescription: "Named after the ancient Greek marketplace of ideas, Agora Network brings together professionals who value deep, meaningful conversations over superficial networking. Our community thrives on intellectual curiosity and genuine connection.",
+    description: "An informal philosophical network dedicated to meaningful dialogue and knowledge sharing. We believe in the power of authentic conversations to drive innovation and create lasting personal relationships.",
+    expandedDescription: "Named after the ancient Greek marketplace of ideas, Agora Network brings together expats and locals alike who value deep, meaningful conversations over superficial networking. Our community thrives on intellectual curiosity and genuine connection.",
     details: [
     "In ancient Greece, the Agora was a place where people gathered to exchange ideas and engage with their community. Inspired by this tradition, our group is a space for thoughtful conversation and shared experiences.",
 
