@@ -15,6 +15,9 @@ interface CommunityData {
     projects: string;
     discussions?: string;
     ceremonies?: string;
+    experts?: string;
+    tradition?: string;
+    varieties?: string;
   };
   image: string;
 }
@@ -59,6 +62,8 @@ const communities: CommunityData[] = [
       members: "150+ Professionals",
       discussions: "Weekly Sessions",
       experts: "30+ Industry Leaders",
+      events: "",
+      projects: "",
     },
     image: "images/agora.png",
   },
@@ -79,6 +84,9 @@ const communities: CommunityData[] = [
       ceremonies: "Weekly Gatherings",
       tradition: "1000+ Years Old",
       varieties: "20+ Tea Types",
+      members: "",
+      events: "",
+      projects: "",
     },
     image: "images/cha.png",
   },
@@ -90,6 +98,7 @@ export default function Community() {
 
   const handleExpand = (index: number) => {
     setExpandedIndex(index);
+    window.scrollTo(0, 0);
   };
 
   const handleCollapse = () => {
