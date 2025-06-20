@@ -162,7 +162,7 @@ export default function Contact() {
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center">
-                      <Icon icon="mdi:email" className="text-primary" width={20} height={20} />
+                      <Icon icon="mdi:email" className="text-primary" width={35} height={35} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Email</p>
@@ -172,7 +172,7 @@ export default function Contact() {
                   
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center">
-                      <Icon icon="mdi:clock" className="text-accent" width={20} height={20} />
+                      <Icon icon="mdi:clock" className="text-accent" width={35} height={35} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Response Time</p>
@@ -182,11 +182,11 @@ export default function Contact() {
                   
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center">
-                      <Icon icon="mdi:calendar" className="text-indigo-500" width={20} height={20} />
+                      <Icon icon="mdi:calendar" className="text-indigo-500" width={35} height={35} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Availability</p>
-                      <p className="text-gray-600">Monday - Friday, 9AM - 6PM PST</p>
+                      <p className="text-gray-600">Monday - Friday, 9AM - 6PM CET</p>
                     </div>
                   </div>
                 </div>
@@ -200,31 +200,31 @@ export default function Contact() {
                 <div >
                   <a href="https://wa.me/qr/SEBKB7CWC6NWB1" className="flex items-center space-x-4 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center">
-                      <Icon icon="mdi:whatsapp" className="text-green-500" width={20} height={20} />
+                      <Icon icon="mdi:whatsapp" className="text-green-500" width={35} height={35} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">WhatsApp</p>
-                      <p className="text-sm text-gray-600">Quick messaging & voice calls</p>
+                      <p className="text-sm text-gray-600">Quick messaging & access to high quality communities</p>
                     </div>
                   </a>
                   
                   <a href="https://www.linkedin.com/in/sorin-tanasa/" className="flex items-center space-x-4 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center">
-                      <Icon icon="mdi:linkedin" className="text-blue-600" width={20} height={20} />
+                      <Icon icon="mdi:linkedin" className="text-blue-600" width={35} height={35} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">LinkedIn</p>
-                      <p className="text-sm text-gray-600">Professional updates & articles</p>
+                      <p className="text-sm text-gray-600">My tech past and communication present</p>
                     </div>
                   </a>
                   
                   <a href="https://www.meetup.com/members/191312989/" className="flex items-center space-x-4 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center">
-                      <Icon icon="mdi:account-multiple" className="text-red-500" width={20} height={20} />
+                      <Icon icon="mdi:account-multiple" className="text-red-500" width={35} height={35} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Meetup.com</p>
-                      <p className="text-sm text-gray-600">Join our local events</p>
+                      <p className="text-sm text-gray-600">Writme me for meetups reccomendations</p>
                     </div>
                   </a>
                 </div>
