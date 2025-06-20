@@ -227,22 +227,6 @@ export default function Coaching() {
                 </Button>
               </div>
             </div>
-            
-            <div className="text-center">
-              <Button 
-                onClick={handleCollapse}
-                variant="outline"
-                className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200 mr-4"
-              >
-                View All Services
-              </Button>
-              <Button 
-                onClick={() => setLocation("/contact")}
-                className="bg-accent text-white px-8 py-3 rounded-lg hover:bg-emerald-700 transition-colors duration-200"
-              >
-                Get Started Today
-              </Button>
-            </div>
           </div>
         </div>
       </div>
