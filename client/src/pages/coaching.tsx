@@ -155,26 +155,86 @@ export default function Coaching() {
                     </div>
                   </CardContent>
                 </Card>
+                
+                <Card className="bg-gray-50 rounded-2xl shadow-lg">
+                  <CardContent className="p-8">
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                      <Target className="mr-3 text-accent" size={24} />
+                      Key Outcomes
+                    </h3>
+                    <ul className="space-y-3">
+                      {service.outcomes?.map((outcome, index) => (
+                        <li key={index} className="flex items-start">
+                          <Check className="text-accent mr-3 mt-1 flex-shrink-0" size={16} />
+                          <span className="text-gray-600 leading-relaxed">{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
               </div>
-            
-              <div className="text-center space-y-4">
-                <Button
-                  onClick={() => setLocation("/contact")}
-                  className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
-                >
-                  Schedule Discovery Call
-                </Button>
-                <Button
-                  onClick={handleCollapse}
-                  variant="outline"
-                  className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200"
-                >
-                  View All Services
-                </Button>
+              
+              <div className="space-y-8">
+                <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
+                
+                <Card className="bg-gray-50 rounded-2xl shadow-lg">
+                  <CardContent className="p-8">
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                      <Clock className="mr-3 text-indigo-500" size={24} />
+                      Program Details
+                    </h3>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span className="text-gray-600 font-medium">Duration</span>
+                        <span className="text-primary font-semibold">{service.duration}</span>
+                      </div>
+                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span className="text-gray-600 font-medium">Format</span>
+                        <span className="text-primary font-semibold">{service.format}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600 font-medium">Investment</span>
+                        <span className="text-primary font-semibold">{service.investment}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <div className="text-center space-y-4">
+                  <Button 
+                    onClick={() => setLocation("/contact")}
+                    className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
+                  >
+                    Schedule Discovery Call
+                  </Button>
+                  <p className="text-sm text-gray-500">
+                    Free 30-minute consultation to discuss your goals
+                  </p>
+                </div>
               </div>
             </div>
-          
             
+            <div className="text-center">
+              <Button 
+                onClick={handleCollapse}
+                variant="outline"
+                className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200 mr-4"
+              >
+                View All Services
+              </Button>
+              <Button 
+                onClick={() => setLocation("/contact")}
+                className="bg-accent text-white px-8 py-3 rounded-lg hover:bg-emerald-700 transition-colors duration-200"
+              >
+                Get Started Today
+              </Button>
+            </div>
           </div>
         </div>
       </div>
