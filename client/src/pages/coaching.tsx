@@ -223,7 +223,7 @@ export default function Coaching() {
             <Button
               onClick={handleCollapse}
               variant="outline"
-              className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200"
+              className="bg-white text-primary justify-center border-2 border-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200"
             >
               View All Services
             </Button>
