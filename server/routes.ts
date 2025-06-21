@@ -1,11 +1,11 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
+// import { createServer, type Server } from "http"; // No longer creating server here
 import { storage } from "./storage";
 import { insertContactMessageSchema } from "@shared/schema";
 import { z } from "zod";
 import { sendContactEmail } from "./email";
 
-export async function registerRoutes(app: Express): Promise<Server> {
+export function registerRoutes(app: Express): void { // Return type changed to void
   // Contact form submission
   app.post("/api/contact", async (req, res) => {
     try {
@@ -120,6 +120,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  const httpServer = createServer(app);
-  return httpServer;
+  // const httpServer = createServer(app); // No longer creating server here
+  // return httpServer; // No longer returning server
 }
