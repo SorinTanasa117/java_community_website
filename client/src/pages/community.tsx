@@ -103,6 +103,7 @@ export default function Community() {
 
   const handleCollapse = () => {
     setExpandedIndex(null);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); // Scroll to top when collapsing
   };
 
   if (expandedIndex !== null) {
@@ -111,7 +112,7 @@ export default function Community() {
       <div className="min-h-screen bg-gray-50 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="mb-8">
-            <Button 
+            <Button
               onClick={handleCollapse}
               variant="ghost"
               className="sticky top-0 flex items-center text-gray-600 hover:text-primary"
@@ -120,10 +121,10 @@ export default function Community() {
               Back to Communities
             </Button>
           </div>
-          
+
           <div className={`${
-            expandedIndex === 0 ? 'animate-slide-in-left' : 
-            expandedIndex === 2 ? 'animate-slide-in-right' : 
+            expandedIndex === 0 ? 'animate-slide-in-left' :
+            expandedIndex === 2 ? 'animate-slide-in-right' :
             'animate-slide-in-center'
           }`}>
             <div className="text-center mb-12">
@@ -132,7 +133,7 @@ export default function Community() {
                 {community.expandedDescription}
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div className="space-y-8">
                 <Card className="bg-white rounded-2xl shadow-lg">
@@ -149,7 +150,7 @@ export default function Community() {
                  </CardContent>
                </Card>
              </div>
-             
+
              <div className="space-y-8">
                <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
                  <img
@@ -158,7 +159,7 @@ export default function Community() {
                    className="w-full h-64 object-cover"
                  />
                </div>
-               
+
                <div className="text-center space-y-4">
                  {community.title === "IdeaVerse" && (
                   <Button
@@ -200,8 +201,8 @@ export default function Community() {
                </div>
              </div>
            </div>
-           
-           
+
+
          </div>
        </div>
      </div>
@@ -219,11 +220,11 @@ export default function Community() {
             The Buddha, Upaddhasutta, SN 45.2
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-8">
           {communities.map((community, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className={`bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
                 expandedIndex === null ? 'animate-fade-in' : ''
               }`}
@@ -252,7 +253,7 @@ export default function Community() {
             </Card>
           ))}
         </div>
-      
+
       </div>
     </div>
   );
