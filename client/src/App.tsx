@@ -11,10 +11,12 @@ import Community from "@/pages/community";
 import Coaching from "@/pages/coaching";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
+import ScrollToTop from "./components/ScrollToTop"; // Added import
 
 function Router() {
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollToTop /> {/* Added component here */}
       <Navbar />
       <main className="flex-1">
         <Switch>
