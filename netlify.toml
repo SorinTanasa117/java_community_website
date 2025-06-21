@@ -5,3 +5,9 @@
 [functions]
   directory = "dist" # Your server/index.ts is bundled to dist/index.js
   node_bundler = "esbuild" # Explicitly tell Netlify to use esbuild for functions
+
+# Redirect rule to proxy /api/* requests to the index function
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/index/:splat"
+  status = 200
