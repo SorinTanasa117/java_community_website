@@ -19,15 +19,30 @@ export default function Contact() {
     message: "",
   });
 
+  const encode = (data: Record<string, string>) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
   const contactMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...data }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      return response;
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast({
         title: "Message sent!",
-        description: data.message,
+        description: "Thank you for your message! I'll get back to you within 24 hours.",
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
     },

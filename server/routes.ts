@@ -1,53 +1,10 @@
 import type { Express } from "express";
 // import { createServer, type Server } from "http"; // No longer creating server here
 import { storage } from "./storage";
-import { insertContactMessageSchema } from "@shared/schema";
-import { z } from "zod";
-import { sendContactEmail } from "./email";
 
 export function registerRoutes(app: Express): void { // Return type changed to void
-  // Contact form submission
-  app.post("/api/contact", async (req, res) => {
-    try {
-      const validatedData = insertContactMessageSchema.parse(req.body);
-      
-      // Send email directly to your inbox
-      const emailSent = await sendContactEmail({
-        name: validatedData.name,
-        email: validatedData.email,
-        subject: validatedData.subject || undefined,
-        message: validatedData.message,
-      });
-      
-      if (emailSent) {
-        console.log("Contact email sent successfully to tanasa.sorin@gmail.com");
-        res.json({
-          success: true, 
-          message: "Thank you for your message! I'll get back to you within 24 hours." 
-        });
-      } else {
-        console.error("Failed to send contact email");
-        res.status(500).json({ 
-          success: false, 
-          message: "Failed to send your message. Please try again later." 
-        });
-      }
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        res.status(400).json({ 
-          success: false, 
-          message: "Please check your form data and try again.",
-          errors: error.errors 
-        });
-      } else {
-        console.error("Contact form error:", error);
-        res.status(500).json({
-          success: false,
-          message: (error as Error).message || "Something went wrong. Please try again later.",
-        });
-      }
-    }
-  });
+  // Contact form submission via Netlify Forms is handled directly by Netlify.
+  // Custom /api/contact route is removed.
 
   // Get contact messages (for admin purposes if needed)
   app.get("/api/contact", async (req, res) => {
