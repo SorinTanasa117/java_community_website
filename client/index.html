@@ -18,8 +18,8 @@
   </head>
   <body>
     <!-- Hidden form for Netlify Form detection -->
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-      <input name="bot-field" />
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/" hidden>
+      <input type="hidden" name="bot-field" />
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="text" name="subject" />
