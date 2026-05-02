@@ -16,21 +16,6 @@ interface ContactEmailParams {
 
 export async function sendContactEmail(params: ContactEmailParams): Promise<boolean> {
   try {
-    // Verify SendGrid API Key
-    try {
-      await mailService.send({
-        to: 'test@example.com', // Replace with a test email address
-        from: 'tanasa.sorin@gmail.com',
-        subject: 'Test Email from Contact Form',
-        text: 'This is a test email to verify the SendGrid API key.',
-        html: '<p>This is a test email to verify the SendGrid API key.</p>',
-      });
-      console.log('SendGrid API key verified successfully.');
-    } catch (error: any) {
-      console.error('SendGrid API key verification failed:', error);
-      throw new Error('Failed to verify SendGrid API key. Please check your API key and try again.');
-    }
-
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #6366f1; border-bottom: 2px solid #e0f2fe; padding-bottom: 10px;">
@@ -69,10 +54,7 @@ ${params.message}
 Sent from your website contact form at ${new Date().toLocaleString()}
     `;
 
-    // Log SendGrid API Key
-    console.log('SendGrid API Key:', process.env.SENDGRID_API_KEY);
-
-    // Log the complete request object
+    // Log the complete request object (excluding sensitive info if any, though here it's mostly form data)
     const request = {
       to: 'tanasa.sorin@gmail.com',
       from: 'tanasa.sorin@gmail.com',
@@ -81,7 +63,7 @@ Sent from your website contact form at ${new Date().toLocaleString()}
       html: htmlContent,
       replyTo: params.email,
     };
-    console.log('SendGrid Request:', JSON.stringify(request, null, 2));
+    console.log('Sending contact email to receiver');
 
     // Send email to the receiver
     await mailService.send(request);
@@ -108,13 +90,15 @@ Sent from your website contact form at ${new Date().toLocaleString()}
       text: confirmationTextContent,
       html: confirmationHtmlContent,
     };
-    console.log('SendGrid Confirmation Request:', JSON.stringify(confirmationRequest, null, 2));
+    console.log('Sending confirmation email to sender');
 
     await mailService.send(confirmationRequest);
     return true;
-  } catch (error) {
+  } catch (error: any) {
     console.error('SendGrid email error:', error);
-    console.error('SendGrid email error:', JSON.stringify(error));
+    if (error.response) {
+      console.error('SendGrid error body:', JSON.stringify(error.response.body, null, 2));
+    }
     return false;
   }
 }
