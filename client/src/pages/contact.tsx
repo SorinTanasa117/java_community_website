@@ -27,10 +27,10 @@ export default function Contact() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
-      const response = await fetch("/", {
+      const response = await fetch("/contact.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...data }),
+        body: encode({ "form-name": "contact", "bot-field": "", ...data }),
       });
 
       if (!response.ok) {
