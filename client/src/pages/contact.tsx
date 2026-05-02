@@ -27,10 +27,16 @@ export default function Contact() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
+      const subjectPrefix = "You have mail from the coaching site - ";
+      const payload = {
+        ...data,
+        subject: data.subject ? subjectPrefix + data.subject : subjectPrefix + "General Inquiry"
+      };
+
       const response = await fetch("/form-submission-target.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", "bot-field": "", ...data }),
+        body: encode({ "form-name": "contact", "bot-field": "", ...payload }),
       });
 
       if (!response.ok) {
