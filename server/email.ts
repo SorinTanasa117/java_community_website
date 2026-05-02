@@ -1,11 +1,18 @@
 import { MailService } from '@sendgrid/mail';
 
-if (!process.env.SENDGRID_API_KEY) {
-  throw new Error("SENDGRID_API_KEY environment variable must be set");
-}
+let mailService: MailService | null = null;
 
-const mailService = new MailService();
-mailService.setApiKey(process.env.SENDGRID_API_KEY);
+function getMailService() {
+  if (mailService) return mailService;
+
+  if (!process.env.SENDGRID_API_KEY) {
+    throw new Error("SENDGRID_API_KEY environment variable is not set. Please configure it in your Netlify environment variables.");
+  }
+
+  mailService = new MailService();
+  mailService.setApiKey(process.env.SENDGRID_API_KEY);
+  return mailService;
+}
 
 interface ContactEmailParams {
   name: string;
@@ -14,7 +21,9 @@ interface ContactEmailParams {
   message: string;
 }
 
-export async function sendContactEmail(params: ContactEmailParams): Promise<boolean> {
+export async function sendContactEmail(params: ContactEmailParams): Promise<void> {
+  const mailService = getMailService();
+
   try {
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -93,12 +102,13 @@ Sent from your website contact form at ${new Date().toLocaleString()}
     console.log('Sending confirmation email to sender');
 
     await mailService.send(confirmationRequest);
-    return true;
   } catch (error: any) {
     console.error('SendGrid email error:', error);
     if (error.response) {
       console.error('SendGrid error body:', JSON.stringify(error.response.body, null, 2));
+      const errorMessage = error.response.body.errors?.[0]?.message || "Failed to send email via SendGrid";
+      throw new Error(errorMessage);
     }
-    return false;
+    throw error;
   }
 }

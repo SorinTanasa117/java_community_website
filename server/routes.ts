@@ -11,27 +11,27 @@ export function registerRoutes(app: Express): void { // Return type changed to v
     try {
       const validatedData = insertContactMessageSchema.parse(req.body);
       
+      // Save message to storage first
+      try {
+        await storage.createContactMessage(validatedData);
+      } catch (storageError) {
+        console.error("Failed to save contact message to storage:", storageError);
+        // We continue even if storage fails, as email is more important for this app
+      }
+
       // Send email directly to your inbox
-      const emailSent = await sendContactEmail({
+      await sendContactEmail({
         name: validatedData.name,
         email: validatedData.email,
         subject: validatedData.subject || undefined,
         message: validatedData.message,
       });
       
-      if (emailSent) {
-        console.log("Contact email sent successfully to tanasa.sorin@gmail.com");
-        res.json({
-          success: true, 
-          message: "Thank you for your message! I'll get back to you within 24 hours." 
-        });
-      } else {
-        console.error("Failed to send contact email");
-        res.status(500).json({ 
-          success: false, 
-          message: "Failed to send your message. Please try again later." 
-        });
-      }
+      console.log("Contact email sent successfully to tanasa.sorin@gmail.com");
+      res.json({
+        success: true,
+        message: "Thank you for your message! I'll get back to you within 24 hours."
+      });
     } catch (error) {
       if (error instanceof z.ZodError) {
         res.status(400).json({ 
