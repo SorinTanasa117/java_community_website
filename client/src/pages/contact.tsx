@@ -27,7 +27,7 @@ export default function Contact() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
-      const response = await fetch("/contact.html", {
+      const response = await fetch("/form-submission-target.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "contact", "bot-field": "", ...data }),
