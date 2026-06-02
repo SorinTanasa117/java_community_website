@@ -192,19 +192,17 @@ export default function Coaching() {
                       <Clock className="mr-3 text-indigo-500" size={24} />
                       Program Details
                     </h3>
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span className="text-gray-600 font-medium">Duration</span>
-                        <span className="text-primary font-semibold">{service.duration}</span>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span className="text-gray-600 font-medium">Format</span>
-                        <span className="text-primary font-semibold">{service.format}</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-600 font-medium">Investment</span>
-                        <span className="text-primary font-semibold">{service.investment}</span>
-                      </div>
+                    <div className="grid grid-cols-1 gap-3">
+                      {[
+                        { label: "Duration", value: service.duration },
+                        { label: "Format", value: service.format },
+                        { label: "Investment", value: service.investment },
+                      ].map(({ label, value }) => (
+                        <div key={label} className="bg-indigo-50/60 rounded-xl px-4 py-3">
+                          <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">{label}</p>
+                          <p className="text-gray-800 font-medium leading-snug">{value}</p>
+                        </div>
+                      ))}
                     </div>
                   </CardContent>
                 </Card>
