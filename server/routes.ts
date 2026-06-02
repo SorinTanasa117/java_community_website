@@ -1,29 +1,34 @@
 import type { Express } from "express";
-// import { createServer, type Server } from "http"; // No longer creating server here
 import { storage } from "./storage";
+import { insertContactMessageSchema } from "@shared/schema";
 
-export function registerRoutes(app: Express): void { // Return type changed to void
-  // Contact form submission via Netlify Forms is handled directly by Netlify.
-  // Custom /api/contact route is removed.
+export function registerRoutes(app: Express): void {
+  app.post("/api/contact", async (req, res) => {
+    try {
+      const parsed = insertContactMessageSchema.safeParse(req.body);
+      if (!parsed.success) {
+        return res.status(400).json({ success: false, message: "Invalid form data." });
+      }
+      const message = await storage.createContactMessage(parsed.data);
+      res.json({ success: true, message: "Message received!", id: message.id });
+    } catch (error) {
+      res.status(500).json({ success: false, message: "Failed to submit message." });
+    }
+  });
 
-  // Get contact messages (for admin purposes if needed)
   app.get("/api/contact", async (req, res) => {
     try {
       const messages = await storage.getContactMessages();
       res.json(messages);
     } catch (error) {
-      res.status(500).json({ 
-        success: false, 
-        message: "Failed to retrieve messages." 
-      });
+      res.status(500).json({ success: false, message: "Failed to retrieve messages." });
     }
   });
 
-  // Admin page to view contact messages
   app.get("/admin/messages", async (req, res) => {
     try {
       const messages = await storage.getContactMessages();
-      
+
       const html = `
         <!DOCTYPE html>
         <html>
@@ -50,7 +55,7 @@ export function registerRoutes(app: Express): void { // Return type changed to v
             <div class="stats">
               <strong>Total Messages: ${messages.length}</strong>
             </div>
-            ${messages.length === 0 
+            ${messages.length === 0
               ? '<div class="no-messages">No messages yet</div>'
               : messages.map(msg => `
                 <div class="message">
@@ -70,13 +75,10 @@ export function registerRoutes(app: Express): void { // Return type changed to v
         </body>
         </html>
       `;
-      
+
       res.send(html);
     } catch (error) {
       res.status(500).send(`<h1>Error</h1><p>Failed to load messages: ${(error as Error).message}</p>`);
     }
   });
-
-  // const httpServer = createServer(app); // No longer creating server here
-  // return httpServer; // No longer returning server
 }

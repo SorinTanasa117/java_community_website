@@ -7,7 +7,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { Icon } from "@iconify/react";
 
 export default function Contact() {
@@ -19,12 +18,6 @@ export default function Contact() {
     message: "",
   });
 
-  const encode = (data: Record<string, string>) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
-
   const contactMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
       const subjectPrefix = "You have mail from the coaching site - ";
@@ -33,17 +26,18 @@ export default function Contact() {
         subject: data.subject ? subjectPrefix + data.subject : subjectPrefix + "General Inquiry"
       };
 
-      const response = await fetch("/form-submission-target.html", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", "bot-field": "", ...payload }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit form");
+        const err = await response.json().catch(() => ({}));
+        throw new Error(err.message || "Failed to submit form");
       }
 
-      return response;
+      return response.json();
     },
     onSuccess: () => {
       toast({
@@ -63,7 +57,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Missing fields",
@@ -93,7 +87,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-50 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-6 py-5">
-        
+
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <Card className="bg-white rounded-2xl shadow-lg">
@@ -111,7 +105,7 @@ export default function Contact() {
                     required
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email *</Label>
                   <Input
@@ -123,7 +117,7 @@ export default function Contact() {
                     required
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="subject" className="text-sm font-medium text-gray-700">Subject</Label>
                   <Select value={formData.subject} onValueChange={(value) => handleInputChange("subject", value)}>
@@ -139,7 +133,7 @@ export default function Contact() {
                     </SelectContent>
                   </Select>
                 </div>
-                
+
                 <div>
                   <Label htmlFor="message" className="text-sm font-medium text-gray-700">Message *</Label>
                   <Textarea
@@ -152,7 +146,7 @@ export default function Contact() {
                     required
                   />
                 </div>
-                
+
                 <Button
                   type="submit"
                   disabled={contactMutation.isPending}
@@ -173,13 +167,13 @@ export default function Contact() {
               </form>
             </CardContent>
           </Card>
-          
+
           {/* Contact Information */}
           <div className="space-y-8">
             <Card className="bg-white rounded-2xl shadow-lg">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Connect With Me</h3>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center">
@@ -190,7 +184,7 @@ export default function Contact() {
                       <p className="text-gray-600">stanasa.it.sci@gmail.com</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                       <Icon icon="mdi:clock" className="text-accent" width={35} height={35} />
@@ -200,7 +194,7 @@ export default function Contact() {
                       <p className="text-gray-600">Within 24 hours</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                       <Icon icon="mdi:calendar" className="text-indigo-500" width={35} height={35} />
@@ -213,12 +207,12 @@ export default function Contact() {
                 </div>
               </CardContent>
             </Card>
-            
+
             {/* Social Media Links */}
             <Card className="bg-white rounded-2xl shadow-lg">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Follow & Connect</h3>
-                <div >
+                <div>
                   <a href="https://wa.me/qr/SEBKB7CWC6NWB1" className="flex items-center space-x-4 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center">
                       <Icon icon="mdi:whatsapp" className="text-green-500" width={35} height={35} />
@@ -228,7 +222,7 @@ export default function Contact() {
                       <p className="text-sm text-gray-600">Quick messaging & access to high quality communities</p>
                     </div>
                   </a>
-                  
+
                   <a href="https://www.linkedin.com/in/sorin-tanasa/" className="flex items-center space-x-4 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center">
                       <Icon icon="mdi:linkedin" className="text-blue-600" width={35} height={35} />
@@ -238,14 +232,14 @@ export default function Contact() {
                       <p className="text-sm text-gray-600">My tech past and communication present</p>
                     </div>
                   </a>
-                  
+
                   <a href="https://www.meetup.com/members/191312989/" className="flex items-center space-x-4 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center">
                       <Icon icon="mdi:account-multiple" className="text-red-500" width={35} height={35} />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Meetup.com</p>
-                      <p className="text-sm text-gray-600">Writme me for meetups reccomendations</p>
+                      <p className="text-sm text-gray-600">Write me for meetups recommendations</p>
                     </div>
                   </a>
                 </div>
