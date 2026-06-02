@@ -29,13 +29,13 @@ const services: ServiceData[]= [
     ],
     expandedDescription: "In today's fast-paced world, meetings can either be the catalyst for breakthrough collaboration or the biggest drain on productivity. Through my Effective Meetings coaching, you'll master the art and science of leading sessions that people actually want to attend.",
     details: [
-    "A time when everyone spoke one language, helping them build a great civilization able of building soaring towers. That is, until divine intervention caused them to speak different tongues, bringing their civilization to its knees.", // Corrected "it's" to "its"
+    "A time when everyone spoke one language, helping them build a great civilization able of building soaring towers. That is, until divine intervention caused them to speak different tongues, bringing their civilization to its knees.",
     "This isn't just a mythical story; it's an allegory of human communication: we speak and listen to build things together, but constantly misunderstandings get in the way of connection and progress.",
     "With over five years as a Toastmaster and countless philosophical discussions, I've dedicated myself to understanding this challenge.",
     "Through this journey, I've perfected a communication framework that minimizes misunderstandings, ensuring you and your team work in harmony on any project."
     ],
     outcomes: [
-      "Develop a read for the flow of a conversation and steer it towards mutual understanding", // Corrected typo "undrstanding"
+      "Develop a read for the flow of a conversation and steer it towards mutual understanding",
       "Create psychological safety for authentic participation",
       "Learn proven conversation frameworks that ensure cooperation and clarity",
       "Build consensus efficiently without sacrificing diverse perspectives"
@@ -66,7 +66,7 @@ const services: ServiceData[]= [
       "Design community structures that scale authentically",
       "Create rituals and traditions that deepen member connection",
       "Learn from your people with diverse cultural backgrounds",
-      "Meet people who can support you in your projects and who can call you their dependable partner" // Corrected typo "whocan"
+      "Meet people who can support you in your projects and who can call you their dependable partner"
     ],
     duration: "8 weekly meetings",
     format: "Group workshops + individual mentoring",
@@ -89,7 +89,7 @@ const services: ServiceData[]= [
     "This course is suitable for people looking to connect more with the present moment and who have an appreciation of the meaning of leading through service."
     ],
     outcomes: [
-      "Develop a read for the flow of a conversation and steer it towards mutual understanding", // Completed the sentence
+      "Develop a read for the flow of a conversation and steer it towards mutual understanding",
       "Create meaningful ritual in your professional and personal life",
       "Master the art of deep listening and authentic response",
       "Use tea ceremony as a unique differentiator in your leadership approach"
@@ -117,7 +117,7 @@ export default function Coaching() {
   if (expandedIndex !== null) {
     const service = services[expandedIndex];
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-indigo-50/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="mb-8">
             <Button
@@ -144,7 +144,7 @@ export default function Coaching() {
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div className="space-y-8">
-                <Card className="bg-gray-50 rounded-2xl shadow-lg">
+                <Card className="bg-white rounded-2xl shadow-lg">
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
                       <BookOpen className="mr-3 text-primary" size={24} />
@@ -158,7 +158,7 @@ export default function Coaching() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gray-50 rounded-2xl shadow-lg">
+                <Card className="bg-white rounded-2xl shadow-lg">
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
                       <Target className="mr-3 text-accent" size={24} />
@@ -177,15 +177,16 @@ export default function Coaching() {
               </div>
 
               <div className="space-y-8">
-                <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
+                <div className="relative w-full h-64 rounded-2xl overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
                     className="w-full h-64 object-cover"
                   />
+                  <div className="absolute inset-0 bg-primary/30" />
                 </div>
 
-                <Card className="bg-gray-50 rounded-2xl shadow-lg">
+                <Card className="bg-white rounded-2xl shadow-lg">
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
                       <Clock className="mr-3 text-indigo-500" size={24} />
@@ -221,9 +222,8 @@ export default function Coaching() {
                 </div>
               </div>
             </div>
-            {/* MOVED THE BUTTON OUTSIDE THE GRID FOR FULL-WIDTH CENTERING */}
           </div>
-          <div className="text-center mt-8"> {/* This div is now outside the grid */}
+          <div className="text-center mt-8">
             <Button
               onClick={handleCollapse}
               variant="outline"
@@ -238,18 +238,19 @@ export default function Coaching() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-indigo-50/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Coaching Services</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            <i>'The highest good is like water.<br/>
-            Water benefits all things and does not compete.<br/>
-            It stays in the lowly places that others disdain.<br/>
-            Therefore it is close to the Tao.'<br/></i>
-            <br/>
-            Lao Tzu, Tao Te Ching (on leadership), Chapter 8.
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Coaching Services</h1>
+          <div className="max-w-2xl mx-auto bg-white/70 border-l-4 border-primary rounded-xl px-8 py-6 shadow-sm">
+            <p className="text-lg text-gray-700 italic leading-relaxed mb-3">
+              'The highest good is like water.<br/>
+              Water benefits all things and does not compete.<br/>
+              It stays in the lowly places that others disdain.<br/>
+              Therefore it is close to the Tao.'
+            </p>
+            <p className="text-sm font-medium text-primary tracking-wide">Lao Tzu, Tao Te Ching (on leadership), Chapter 8</p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -263,11 +264,14 @@ export default function Coaching() {
                 animationDelay: `${index * 0.1}s`
               }}
             >
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-48 object-cover"
-              />
+              <div className="relative w-full h-48">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-primary/30" />
+              </div>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
@@ -293,19 +297,19 @@ export default function Coaching() {
           ))}
         </div>
 
-           <div className="text-center mt-16 bg-gray-50 rounded-2xl p-8">
-           <h3 className="text-2xl font-semibold text-gray-900 mb-4">Ready to Start Your Journey?</h3>
-           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-             Book a complimentary discovery session to explore how coaching can transform your relationships and leadership impact.
-           </p>
-           <Button
-             onClick={() => setLocation("/contact")}
-             className="bg-accent text-white px-8 py-3 rounded-lg hover:bg-emerald-700 transition-colors duration-200"
-           >
-             Schedule Discovery Session
-           </Button>
-         </div>
-       </div>
-     </div>
-   );
+        <div className="text-center mt-16 bg-white/70 rounded-2xl p-8 shadow-sm">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4">Ready to Start Your Journey?</h3>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            Book a complimentary discovery session to explore how coaching can transform your relationships and leadership impact.
+          </p>
+          <Button
+            onClick={() => setLocation("/contact")}
+            className="bg-accent text-white px-8 py-3 rounded-lg hover:bg-emerald-700 transition-colors duration-200"
+          >
+            Schedule Discovery Session
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
 }

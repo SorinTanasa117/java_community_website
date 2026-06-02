@@ -54,9 +54,9 @@ const communities: CommunityData[] = [
 
     "Agora isn't just another discussion to join or event to attend—it's an invitation to explore what might be possible for ourselves and the world around us.",
 
-    "This meetup is organized by my dear friend Justin Mainous, using the same discussion format I established in 2023 and consistently allowing open and enlightning onversations that have brought countless people together as a community ever since.",
+    "This meetup is organized by my dear friend Justin Mainous, using the same discussion format I established in 2023 and consistently allowing open and enlightning conversations that have brought countless people together as a community ever since.",
 
-    "For more details and next events, please check out Agora Network  Meetup.com events on the link below."
+    "For more details and next events, please check out Agora Network Meetup.com events on the link below."
     ],
     stats: {
       members: "150+ Professionals",
@@ -103,13 +103,13 @@ export default function Community() {
 
   const handleCollapse = () => {
     setExpandedIndex(null);
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); // Scroll to top when collapsing
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
 
   if (expandedIndex !== null) {
     const community = communities[expandedIndex];
     return (
-      <div className="min-h-screen bg-gray-50 scroll-mt-20">
+      <div className="min-h-screen bg-indigo-50/40 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="mb-8">
             <Button
@@ -152,12 +152,13 @@ export default function Community() {
              </div>
 
              <div className="space-y-8">
-               <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
+               <div className="relative w-full h-64 rounded-2xl overflow-hidden">
                  <img
                    src={community.image}
                    alt={community.title}
                    className="w-full h-64 object-cover"
                  />
+                 <div className="absolute inset-0 bg-primary/30" />
                </div>
 
                <div className="text-center space-y-4">
@@ -201,8 +202,6 @@ export default function Community() {
                </div>
              </div>
            </div>
-
-
          </div>
        </div>
      </div>
@@ -210,15 +209,16 @@ export default function Community() {
  }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-indigo-50/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Community</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            <i>'Good friends, good companions, and good associates are not just part of the spiritual life. They ARE the spiritual life.'<br></br></i>
-            <br></br>
-            The Buddha, Upaddhasutta, SN 45.2
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Community</h1>
+          <div className="max-w-2xl mx-auto bg-white/70 border-l-4 border-primary rounded-xl px-8 py-6 shadow-sm">
+            <p className="text-lg text-gray-700 italic leading-relaxed mb-3">
+              'Good friends, good companions, and good associates are not just part of the spiritual life. They ARE the spiritual life.'
+            </p>
+            <p className="text-sm font-medium text-primary tracking-wide">The Buddha, Upaddhasutta, SN 45.2</p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -232,11 +232,14 @@ export default function Community() {
                 animationDelay: `${index * 0.1}s`
               }}
             >
-              <img
-                src={community.image}
-                alt={community.title}
-                className="w-full h-48 object-cover"
-              />
+              <div className="relative w-full h-48">
+                <img
+                  src={community.image}
+                  alt={community.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-primary/30" />
+              </div>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-3">{community.title}</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">

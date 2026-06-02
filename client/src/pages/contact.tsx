@@ -85,7 +85,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 scroll-mt-20">
+    <div className="min-h-screen bg-indigo-50/40 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-6 py-5">
 
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">

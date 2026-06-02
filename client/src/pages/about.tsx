@@ -2,7 +2,7 @@ import { CheckCircle } from "lucide-react";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-white text-center">
+    <div className="min-h-screen bg-indigo-50/40 text-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-6xl mx-auto">
           
