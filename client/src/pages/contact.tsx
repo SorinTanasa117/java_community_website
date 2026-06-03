@@ -6,7 +6,6 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
 import { Icon } from "@iconify/react";
 
 export default function Contact() {
@@ -17,45 +16,9 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: typeof formData) => {
-      const subjectPrefix = "You have mail from the coaching site - ";
-      const payload = {
-        ...data,
-        subject: data.subject ? subjectPrefix + data.subject : subjectPrefix + "General Inquiry"
-      };
-
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        const err = await response.json().catch(() => ({}));
-        throw new Error(err.message || "Failed to submit form");
-      }
-
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message! I'll get back to you within 24 hours.",
-      });
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    },
-    onError: (error: any) => {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
@@ -77,7 +40,46 @@ export default function Contact() {
       return;
     }
 
-    contactMutation.mutate(formData);
+    setIsSubmitting(true);
+
+    const subjectPrefix = "You have mail from the coaching site - ";
+    const subjectValue = formData.subject
+      ? subjectPrefix + formData.subject
+      : subjectPrefix + "General Inquiry";
+
+    const encoded = new URLSearchParams({
+      "form-name": "contact",
+      name: formData.name,
+      email: formData.email,
+      subject: subjectValue,
+      message: formData.message,
+    }).toString();
+
+    try {
+      const response = await fetch("/form-submission-target.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encoded,
+      });
+
+      if (response.ok || response.status === 200) {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message! I'll get back to you within 24 hours.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error(`Server responded with ${response.status}`);
+      }
+    } catch (err: any) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or reach out directly by email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -93,15 +95,26 @@ export default function Contact() {
           <Card className="bg-white rounded-2xl shadow-lg">
             <CardContent className="p-4">
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">Send a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                {/* Hidden field required by Netlify Forms */}
+                <input type="hidden" name="form-name" value="contact" />
+
                 <div>
                   <Label htmlFor="name" className="text-sm font-medium text-gray-700">Name *</Label>
                   <Input
                     id="name"
+                    name="name"
                     type="text"
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
                     className="mt-2"
+                    data-testid="input-name"
                     required
                   />
                 </div>
@@ -110,10 +123,12 @@ export default function Contact() {
                   <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email *</Label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
                     className="mt-2"
+                    data-testid="input-email"
                     required
                   />
                 </div>
@@ -121,7 +136,7 @@ export default function Contact() {
                 <div>
                   <Label htmlFor="subject" className="text-sm font-medium text-gray-700">Subject</Label>
                   <Select value={formData.subject} onValueChange={(value) => handleInputChange("subject", value)}>
-                    <SelectTrigger className="mt-2">
+                    <SelectTrigger className="mt-2" data-testid="select-subject">
                       <SelectValue placeholder="Select a topic..." />
                     </SelectTrigger>
                     <SelectContent>
@@ -138,21 +153,24 @@ export default function Contact() {
                   <Label htmlFor="message" className="text-sm font-medium text-gray-700">Message *</Label>
                   <Textarea
                     id="message"
+                    name="message"
                     value={formData.message}
                     onChange={(e) => handleInputChange("message", e.target.value)}
                     rows={5}
                     className="mt-2 resize-none"
                     placeholder="Tell me about what you're looking for..."
+                    data-testid="textarea-message"
                     required
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  disabled={contactMutation.isPending}
+                  disabled={isSubmitting}
+                  data-testid="button-submit"
                   className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200 flex items-center justify-center"
                 >
-                  {contactMutation.isPending ? (
+                  {isSubmitting ? (
                     <>
                       <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
                       Sending...
